@@ -3,6 +3,11 @@ package glass_website
 import csstype.*
 import emotion.react.css
 import react.PropsWithClassName
+import react.dom.html.ReactHTML
+import react.dom.html.ReactHTML.h1
+import react.dom.html.ReactHTML.h2
+import react.dom.html.ReactHTML.h3
+import react.dom.html.ReactHTML.p
 
 fun PropsWithClassName.mainCss() = css {
     minHeight = 100.vh
@@ -12,6 +17,36 @@ fun PropsWithClassName.mainCss() = css {
     display = Display.flex
     alignItems = AlignItems.center
     justifyContent = JustifyContent.center
+    fontFamily = FontFamily.sansSerif
+    fontFace {
+        fontFamily = "Poppins"
+    }
+
+    // Configure fonts and color
+    h1 {
+        color = Color("#426696")
+        fontWeight = integer(600)
+        fontSize = 2.rem
+        opacity = number(.8)
+    }
+    h2 {
+        color = Color("#658ec6")
+        fontWeight = integer(500)
+        fontSize = 1.rem
+        opacity = number(.8)
+    }
+    h3 {
+        color = Color("#426696")
+        fontWeight = integer(600)
+        fontSize = 1.rem
+        opacity = number(.8)
+    }
+    p {
+        color = Color("#658ec6")
+        fontWeight = integer(500)
+        fontSize = 1.rem
+        opacity = number(.8)
+    }
 }
 
 
