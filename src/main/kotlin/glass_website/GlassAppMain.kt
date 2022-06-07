@@ -16,7 +16,7 @@ val GlassApMain = FC<Props> {
         //Glass
         section {
             glassCss()
-            // Dashboard
+            // Dashboard & Games Panes
             DashboardPane()
             GamesPane()
         }
