@@ -3,7 +3,6 @@ package glass_website
 import csstype.*
 import emotion.react.css
 import react.PropsWithClassName
-import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.h1
 import react.dom.html.ReactHTML.h2
 import react.dom.html.ReactHTML.h3
