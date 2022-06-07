@@ -2,7 +2,8 @@ package glass_website
 
 import csstype.integer
 import csstype.pct
-import glass_website.components.Dashboard
+import glass_website.panes.DashboardPane
+import glass_website.panes.GamesPane
 import react.FC
 import react.Props
 import react.dom.html.ReactHTML.div
@@ -16,7 +17,8 @@ val GlassApMain = FC<Props> {
         section {
             glassCss()
             // Dashboard
-            Dashboard()
+            DashboardPane()
+            GamesPane()
         }
     }
     div {

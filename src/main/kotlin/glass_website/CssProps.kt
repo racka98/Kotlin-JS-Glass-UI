@@ -31,6 +31,7 @@ fun PropsWithClassName.glassCss() = css {
     borderRadius = 2.rem
     backdropFilter = blur(2.rem)
     zIndex = integer(3)
+    display = Display.flex
 }
 
 fun PropsWithClassName.circleCss(
