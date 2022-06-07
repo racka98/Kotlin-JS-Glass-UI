@@ -6,6 +6,7 @@ import react.PropsWithClassName
 import react.dom.html.ReactHTML.h1
 import react.dom.html.ReactHTML.h2
 import react.dom.html.ReactHTML.h3
+import react.dom.html.ReactHTML.input
 import react.dom.html.ReactHTML.p
 
 fun PropsWithClassName.mainCss() = css {
@@ -45,6 +46,14 @@ fun PropsWithClassName.mainCss() = css {
         fontWeight = integer(500)
         fontSize = 1.rem
         opacity = number(.8)
+    }
+
+    input {
+        placeholder {
+            color = Color("#658ec6")
+            fontWeight = integer(500)
+            opacity = number(.8)
+        }
     }
 }
 

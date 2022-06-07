@@ -17,7 +17,10 @@ val GamesPane = FC<Props> {
         // Status
         div {
             h1 { +"Active Games" }
-            input { type = InputType.text }
+            input {
+                type = InputType.text
+                placeholder = "Enter Game name"
+            }
         }
         // Cards
         CardComponent {
@@ -27,14 +30,14 @@ val GamesPane = FC<Props> {
             percentage = 20
         }
         CardComponent {
-            imgSrc = "images/assassins.png"
-            gameName = "Assassins Creed: Valhala"
+            imgSrc = "images/sackboy.png"
+            gameName = "Sackboy: A Great Adventure"
             gameVersion = "PS5 Version"
             percentage = 60
         }
         CardComponent {
-            imgSrc = "images/assassins.png"
-            gameName = "Assassins Creed: Valhala"
+            imgSrc = "images/spiderman.png"
+            gameName = "Spiderman Miles Morales"
             gameVersion = "PS5 Version"
             percentage = 80
         }
@@ -43,10 +46,14 @@ val GamesPane = FC<Props> {
 
 fun PropsWithClassName.gamesPaneCss() = css {
     flex = number(2.0)
-    margin = Margin(3.rem, 3.rem)
+    margin = Margin(1.rem, 2.rem)
     display = Display.flex
     flexDirection = FlexDirection.column
     justifyContent = JustifyContent.spaceEvenly
+
+    h1 {
+        paddingBottom = 0.8.rem
+    }
 
     input {
         val color1 = stop(
@@ -61,6 +68,7 @@ fun PropsWithClassName.gamesPaneCss() = css {
         border = None.none
         borderRadius = 1.rem
         width = 60.pct
-        padding = 0.5.rem
+        padding = 0.8.rem
+
     }
 }

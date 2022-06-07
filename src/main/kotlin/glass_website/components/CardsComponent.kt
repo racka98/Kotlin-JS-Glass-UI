@@ -5,12 +5,10 @@ import emotion.react.css
 import react.FC
 import react.Props
 import react.PropsWithClassName
-import react.dom.html.ReactHTML
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h2
 import react.dom.html.ReactHTML.img
 import react.dom.html.ReactHTML.p
-import kotlin.Float
 
 external interface CardProps : Props {
     var imgSrc: String
@@ -25,6 +23,7 @@ val CardComponent = FC<CardProps> { props ->
         img { src = props.imgSrc }
         // Info
         div {
+            cardInfoCss()
             h2 { +props.gameName }
             p { +props.gameVersion }
             // Progress Bar
@@ -36,7 +35,7 @@ val CardComponent = FC<CardProps> { props ->
     }
 }
 
-external interface ProgressBarProps: Props {
+external interface ProgressBarProps : Props {
     var progress: Int
 }
 
@@ -86,8 +85,16 @@ private fun PropsWithClassName.cardComponentCss() = css {
         height = 6.rem
         width = 6.rem
     }
+
+    h2 {
+        fontWeight = FontWeight.bold
+    }
 }
 
 private fun PropsWithClassName.cardInfoCss() = css {
-
+    flex = number(1.0)
+    padding = Padding(0.rem, 2.rem)
+    display = Display.flex
+    flexDirection = FlexDirection.column
+    justifyContent = JustifyContent.spaceBetween
 }
