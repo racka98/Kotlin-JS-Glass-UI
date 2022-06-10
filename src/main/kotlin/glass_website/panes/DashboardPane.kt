@@ -1,25 +1,23 @@
 package glass_website.panes
 
 import csstype.*
-import emotion.react.css
+import emotion.styled.styled
 import glass_website.components.LinksComponent
 import glass_website.components.ProComponent
 import glass_website.components.UserComponent
 import react.FC
 import react.Props
-import react.PropsWithClassName
 import react.dom.html.ReactHTML.div
 
 val DashboardPane = FC<Props> {
-    div {
-        dashboardPaneCss()
+    StyledDashboardPaneDiv {
         UserComponent()
         LinksComponent()
         ProComponent()
     }
 }
 
-fun PropsWithClassName.dashboardPaneCss() = css {
+private val StyledDashboardPaneDiv = div.styled { _, _ ->
     flex = number(1.0)
     display = Display.flex
     flexDirection = FlexDirection.column

@@ -1,15 +1,17 @@
 package glass_website
 
 import csstype.*
-import emotion.react.css
-import react.PropsWithClassName
+import emotion.styled.styled
+import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h1
 import react.dom.html.ReactHTML.h2
 import react.dom.html.ReactHTML.h3
 import react.dom.html.ReactHTML.input
+import react.dom.html.ReactHTML.main
 import react.dom.html.ReactHTML.p
+import react.dom.html.ReactHTML.section
 
-fun PropsWithClassName.mainCss() = css {
+val StyledMainContainer = main.styled { _, _ ->
     minHeight = 100.vh
     val color1 = stop(Color("#65dfc9"), 30.pct)
     val color2 = stop(Color("#6cdbeb"), 80.pct)
@@ -57,8 +59,7 @@ fun PropsWithClassName.mainCss() = css {
     }
 }
 
-
-fun PropsWithClassName.glassCss() = css {
+val StyledGlassSection = section.styled { _, _ ->
     background = NamedColor.white
     minHeight = 85.vh
     width = 80.vw
@@ -77,9 +78,7 @@ fun PropsWithClassName.glassCss() = css {
     display = Display.flex
 }
 
-fun PropsWithClassName.circleCss(
-    builder: PropertiesBuilder.() -> Unit = {}
-) = css {
+val StyledCircleDiv = div.styled { _, _ ->
     background = NamedColor.white
     val color1 = stop(
         rgba(255, 255, 255, .8),
@@ -94,5 +93,4 @@ fun PropsWithClassName.circleCss(
     width = 15.rem
     borderRadius = 50.pct
     position = Position.absolute
-    builder()
 }

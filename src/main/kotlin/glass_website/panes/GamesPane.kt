@@ -1,19 +1,17 @@
 package glass_website.panes
 
 import csstype.*
-import emotion.react.css
+import emotion.styled.styled
 import glass_website.components.CardComponent
 import react.FC
 import react.Props
-import react.PropsWithClassName
 import react.dom.html.InputType
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h1
 import react.dom.html.ReactHTML.input
 
 val GamesPane = FC<Props> {
-    div {
-        gamesPaneCss()
+    StyledGamesPaneDiv {
         // Status
         div {
             h1 { +"Active Games" }
@@ -44,7 +42,7 @@ val GamesPane = FC<Props> {
     }
 }
 
-fun PropsWithClassName.gamesPaneCss() = css {
+private val StyledGamesPaneDiv = div.styled { _, _ ->
     flex = number(2.0)
     margin = Margin(1.rem, 2.rem)
     display = Display.flex
@@ -69,6 +67,5 @@ fun PropsWithClassName.gamesPaneCss() = css {
         borderRadius = 1.rem
         width = 60.pct
         padding = 0.8.rem
-
     }
 }

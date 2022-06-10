@@ -2,9 +2,9 @@ package glass_website.components
 
 import csstype.*
 import emotion.react.css
+import emotion.styled.styled
 import react.FC
 import react.Props
-import react.PropsWithClassName
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h2
 import react.dom.html.ReactHTML.img
@@ -18,12 +18,10 @@ external interface CardProps : Props {
 }
 
 val CardComponent = FC<CardProps> { props ->
-    div {
-        cardComponentCss()
+    StyledCardDiv {
         img { src = props.imgSrc }
         // Info
-        div {
-            cardInfoCss()
+        StyledCardInfoDiv {
             h2 { +props.gameName }
             p { +props.gameVersion }
             // Progress Bar
@@ -64,7 +62,7 @@ val ProgressBar = FC<ProgressBarProps> { props ->
     }
 }
 
-private fun PropsWithClassName.cardComponentCss() = css {
+val StyledCardDiv = div.styled { _, _ ->
     display = Display.flex
     val color1 = stop(
         rgba(255, 255, 255, 1.0),
@@ -91,7 +89,7 @@ private fun PropsWithClassName.cardComponentCss() = css {
     }
 }
 
-private fun PropsWithClassName.cardInfoCss() = css {
+val StyledCardInfoDiv = div.styled { _, _ ->
     flex = number(1.0)
     padding = Padding(0.rem, 2.rem)
     display = Display.flex

@@ -1,40 +1,35 @@
 package glass_website.components
 
 import csstype.*
-import emotion.react.css
+import emotion.styled.styled
 import react.FC
 import react.Props
-import react.PropsWithClassName
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h2
 import react.dom.html.ReactHTML.img
 
 val LinksComponent = FC<Props> {
     div {
-        div {
-        linkCss()
+        StyledLinkDiv {
             img { src = "./images/twitch.png" }
             h2 { +"Streams" }
         }
-        div {
-            linkCss()
+        StyledLinkDiv {
             img { src = "./images/steam.png" }
             h2 { +"Games" }
         }
-        div {
-            linkCss()
+        StyledLinkDiv {
             img { src = "./images/upcoming.png" }
             h2 { +"New" }
         }
-        div {
-            linkCss()
+        StyledLinkDiv {
             img { src = "./images/library.png" }
             h2 { +"Library" }
         }
     }
 }
 
-fun PropsWithClassName.linkCss() = css {
+private val StyledLinkDiv = div.styled { _, _ ->
     display = Display.flex
     margin = Margin(1.rem, 0.rem)
     padding = Padding(1.rem, 2.rem)
