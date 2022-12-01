@@ -1,15 +1,16 @@
-val kotlinVersion = "1.6.10"
-val serializationVersion = "1.3.3"
+val kotlinVersion = "1.7.20"
+val serializationVersion = "1.4.1"
 val reactVersion = "18.0.0-pre.332-kotlin-1.6.21"
 val kotlinEmotion = "11.9.0-pre.332-kotlin-1.6.21"
-val coroutinesVersion = "1.6.1" // See: Kotlin/kotlinx.coroutines#3305
+val coroutinesVersion = "1.6.4"
 val reactYtLiteVersion = "1.0.4"
 val reactShareVersion = "4.4.0"
 val kotlinStyleVersion = "5.3.5-pre.341-compat"
+val kotlinWrappersBomVersion = "1.0.0-pre.454"
 
 plugins {
-    kotlin("js") version "1.6.21"
-    kotlin("plugin.serialization") version "1.6.21"
+    kotlin("js") version "1.7.20"
+    kotlin("plugin.serialization") version "1.7.20"
 }
 
 group = "work.racka"
@@ -21,9 +22,18 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-emotion:$kotlinEmotion")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react:$reactVersion")
-    implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom:$reactVersion")
+    implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:$kotlinWrappersBomVersion"))
+    implementation(kotlinw("emotion"))
+    implementation(kotlinw("react"))
+    implementation(kotlinw("react-dom"))
+    implementation(kotlinw("react-router-dom"))
+
+    implementation(kotlinw("emotion"))
+    implementation(kotlinw("mui"))
+    implementation(kotlinw("mui-icons"))
+
+    implementation(npm("date-fns", "2.29.3"))
+    implementation(npm("@date-io/date-fns", "2.16.0"))
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
@@ -43,3 +53,6 @@ kotlin {
 tasks.create("stage") {
     dependsOn(tasks.getByName("build"))
 }
+
+fun kotlinw(target: String): String =
+    "org.jetbrains.kotlin-wrappers:kotlin-$target"
