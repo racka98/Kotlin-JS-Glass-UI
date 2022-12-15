@@ -1,8 +1,11 @@
-# Glass UI with Kotlin/JS
+# Material UI & Glass UI with Kotlin/JS
+
+Material UI design using Kotlin/JS and React-DOM and MUI wrapper
 
 Glass UI design using Kotlin/JS and React-DOM
 
-Based on [this YouTube video](https://www.youtube.com/watch?v=O7WbVj5apxU) by Dev Ed
+- Material UI Based on [this sample](https://github.com/karakum-team/kotlin-mui-showcase)
+- Glass UI Based on [this YouTube video](https://www.youtube.com/watch?v=O7WbVj5apxU) by Dev Ed
 
 ## Libraries Uses
 
@@ -11,3 +14,4 @@ Based on [this YouTube video](https://www.youtube.com/watch?v=O7WbVj5apxU) by De
 - kotlin-react-dom
 - kotlin-coroutines
 - kotlinx-serialization-json
+- kotlin-react-mui
