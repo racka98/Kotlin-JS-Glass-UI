@@ -1,4 +1,3 @@
-import glass_website.GlassApMain
 import browser.document
 import dom.html.HTML.div
 import dom.html.createElement

@@ -22,7 +22,7 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
-    implementation(enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:$kotlinWrappersBomVersion"))
+    implementation(enforcedPlatform(kotlinw("wrappers-bom:$kotlinWrappersBomVersion")))
     implementation(kotlinw("emotion"))
     implementation(kotlinw("react"))
     implementation(kotlinw("react-dom"))
@@ -43,11 +43,18 @@ kotlin {
     js(IR) {
         binaries.executable()
         browser {
+            runTask {
+                dependsOn(":developmentExecutableCompileSync")
+            }
             commonWebpackConfig {
-                cssSupport.enabled = true
+                // cssSupport.enabled = true
             }
         }
     }
+}
+
+rootProject.extensions.configure<org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootExtension> {
+    versions.webpackCli.version = "4.10.0"
 }
 
 tasks.create("stage") {
