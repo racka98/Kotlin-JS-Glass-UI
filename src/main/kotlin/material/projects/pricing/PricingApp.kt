@@ -33,7 +33,7 @@ private val header = FC<Props> {
     val theme by useContext(ThemeContext)
     AppBar {
         position = AppBarPosition.static
-        color = AppBarColor.default
+        color = AppBarColor.primary
         elevation = 0
         sx { borderBottom = Border(1.px, LineStyle.solid, Color(theme.palette.divider.toString())) }
         Toolbar {
@@ -48,15 +48,17 @@ private val header = FC<Props> {
             nav {
                 Link {
                     variant = "button".asDynamic()
-                    color = "text.primary"
-                    sx { margin = Margin(1.px, 8.px) }
+                    sx {
+                        color = theme.palette.primary.contrastText
+                        margin = Margin(1.px, 8.px)
+                    }
                     href = "#"
                     +"Features"
                 }
                 Link {
                     variant = "button".asDynamic()
                     sx {
-                        color = theme.palette.text.primary
+                        color = theme.palette.primary.contrastText
                         margin = Margin(1.px, 8.px)
                     }
                     href = "#"
@@ -65,7 +67,7 @@ private val header = FC<Props> {
                 Link {
                     variant = "button".asDynamic()
                     sx {
-                        color = theme.palette.text.primary
+                        color = theme.palette.primary.contrastText
                         margin = Margin(1.px, 8.px)
                     }
                     href = "#"
@@ -73,8 +75,9 @@ private val header = FC<Props> {
                 }
             }
             Button {
-                variant = ButtonVariant.outlined
+                variant = ButtonVariant.contained
                 href = "#"
+                color = ButtonColor.success
                 sx { margin = Margin(1.px, 8.px) }
                 +"Login"
             }
