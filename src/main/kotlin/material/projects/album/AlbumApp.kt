@@ -12,6 +12,7 @@ import mui.icons.material.PhotoCamera
 import mui.material.*
 import mui.material.styles.TypographyVariant
 import mui.system.Box
+import mui.system.PropsWithSx
 import mui.system.sx
 import react.*
 import react.dom.aria.ariaLabel
@@ -50,7 +51,7 @@ private val albumContents = FC<Props> {
             component = p
             +"Something of purpose for Footer"
         }
-        copyright()
+        Copyright()
     }
 }
 
@@ -83,18 +84,20 @@ private val header = FC<Props> {
     }
 }
 
-private val copyright = FC<Props> {
+val Copyright = FC<PropsWithSx> { props ->
     Typography {
+        sx = props.sx
         variant = TypographyVariant.body2
         color = "text.secondary"
+        align = TypographyAlign.center
         +"Copyright "
         Link {
             color = "inherit"
             href = "https://mui.com/"
 
-            +"My Website "
+            +"My Website"
         }
 
-        +"${Date().getFullYear()}."
+        +" ${Date().getFullYear()}."
     }
 }
